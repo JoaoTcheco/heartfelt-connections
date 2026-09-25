@@ -29,9 +29,11 @@ $menu = [
     ['perfil', 'Meu perfil', 'fa-user', ['admin','gestor','funcionario'], false],
 ];
 
-function menuAtivo(string $rota, string $current): bool {
-    if ($rota === 'dashboard') return $current === 'dashboard';
-    return $current === $rota || ($rota === 'funcionarios' && in_array($current, ['funcionario','funcionarios'], true));
+function menuAtivo(string $rota, string $uri): bool {
+    $path = trim(parse_url($uri, PHP_URL_PATH) ?: '/', '/');
+    if ($rota === 'dashboard') return $path === 'dashboard';
+    if ($rota === 'funcionarios') return $path === 'funcionarios' || str_starts_with($path, 'funcionarios/') || str_starts_with($path, 'funcionario/');
+    return $path === $rota || str_starts_with($path, $rota . '/');
 }
 ?>
 <!DOCTYPE html>
@@ -162,7 +164,7 @@ function menuAtivo(string $rota, string $current): bool {
             <?php foreach ($menu as $m):
                 if (!in_array($perfil, $m[3], true)) continue;
                 if (!empty($m[4]) && !$marcaPonto) continue;
-                $isActive = menuAtivo($m[0], $current);
+                $isActive = menuAtivo($m[0], $uri);
                 $active = $isActive ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-700 hover:bg-emerald-50 hover:text-emerald-800';
             ?>
             <a href="<?= BASE_PATH ?>/<?= $m[0] ?>" <?= $isActive ? 'aria-current="page"' : '' ?> class="group flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all <?= $active ?>">
