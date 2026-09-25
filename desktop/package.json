@@ -1,0 +1,17 @@
+{
+  "name": "farmaponto",
+  "productName": "FarmaPonto",
+  "version": "1.0.0",
+  "description": "FarmaPonto - controlo de assiduidade (versao de secretaria, 100% offline)",
+  "main": "main.cjs",
+  "author": "FarmaPonto",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^32.2.7",
+    "@electron/packager": "^18.3.6"
+  }
+}

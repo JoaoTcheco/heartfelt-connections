@@ -1,0 +1,8 @@
+/config/config.local.php
+/storage/backups/*
+/storage/selfies/*
+/storage/uploads/*
+/storage/cache/*
+/storage/esquema.ok
+!/storage/**/.gitkeep
+*.log

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sem ligação · FarmaPonto</title>
+<meta name="theme-color" content="#047857">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:system-ui,-apple-system,Inter,Segoe UI,Arial,sans-serif;background:linear-gradient(135deg,#ecfdf5,#d1fae5);color:#064e3b;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{max-width:480px;width:100%;background:#fff;border:1px solid #a7f3d0;border-radius:18px;padding:32px;box-shadow:0 10px 40px rgba(4,120,87,.08);text-align:center}
+  .ico{width:72px;height:72px;margin:0 auto 16px;border-radius:18px;background:#047857;color:#fff;display:flex;align-items:center;justify-content:center;font-size:36px;font-weight:700}
+  h1{margin:0 0 8px;font-size:22px}
+  p{color:#374151;line-height:1.55;margin:6px 0 0}
+  .pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ef4444;margin-right:6px;animation:p 1.4s infinite}
+  @keyframes p{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+  ul{text-align:left;color:#374151;font-size:14px;line-height:1.7;background:#f9fafb;border-radius:10px;padding:14px 18px;margin:18px 0 0}
+  button{margin-top:20px;background:#047857;color:#fff;border:0;border-radius:10px;padding:12px 22px;font-size:15px;font-weight:600;cursor:pointer}
+  button:hover{background:#065f46}
+  small{display:block;margin-top:14px;color:#6b7280}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="ico">F</div>
+  <h1><span class="pulse"></span> Sem ligação</h1>
+  <p>Está sem internet — o FarmaPonto está em <strong>modo offline</strong>.</p>
+  <ul>
+    <li>Páginas já visitadas continuam acessíveis (cache).</li>
+    <li><strong>Marcação de presença</strong> (entrada/saída/quickpunch) <em>exige</em> rede para o servidor validar o PIN e gravar a selfie.</li>
+    <li>A sua sessão é mantida; ao voltar a ter rede, basta recarregar.</li>
+  </ul>
+  <button onclick="location.reload()">Tentar novamente</button>
+  <small>v3 · Service Worker activo</small>
+</div>
+<script>
+  // Recarregar automaticamente quando a ligação voltar
+  window.addEventListener('online', () => location.reload());
+</script>
+</body>
+</html>

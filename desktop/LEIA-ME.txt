@@ -1,0 +1,26 @@
+FarmaPonto 1.0.0 - versao portatil (Windows 64 bits)
+====================================================
+
+COMO USAR
+1. Copie esta pasta inteira para o computador (ou para uma pen).
+2. Abra FarmaPonto.exe. Nao e preciso instalar nada, nem Internet.
+
+PRIMEIRO ACESSO
+  Utilizador: admin@farmaponto.local
+  Palavra-passe: admin123
+  PIN do terminal rapido: 1234
+Mude a palavra-passe e o PIN no primeiro dia.
+
+ONDE FICAM OS DADOS
+  C:\Users\<o seu utilizador>\AppData\Roaming\FarmaPonto
+Nessa pasta estao a base de dados, as fotografias e as copias de seguranca.
+Para levar tudo para outro computador, copie essa pasta.
+
+COPIAS DE SEGURANCA
+O programa faz uma copia automatica por dia dentro de storage\backups.
+Copie essa pasta para um disco externo de vez em quando.
+
+NOTAS
+- A pasta inteira deve ficar junta; nao apague ficheiros.
+- Se o Windows pedir autorizacao de rede, pode recusar: o programa so fala
+  consigo mesmo dentro do computador.

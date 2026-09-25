@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Áreas privadas / endpoints
+Disallow: /app/
+Disallow: /config/
+Disallow: /storage/
+Disallow: /logout
+Disallow: /relatorios
+Disallow: /funcionarios
+Disallow: /logs
+Disallow: /perfil
+Disallow: /selfie/

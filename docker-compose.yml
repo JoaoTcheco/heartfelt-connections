@@ -1,0 +1,32 @@
+# FarmaPonto - arranque completo (aplicacao + base de dados) num comando:
+#   docker compose up -d   ->   http://localhost:8080
+services:
+  app:
+    build: .
+    ports:
+      - "8080:80"
+    environment:
+      FP_DB_HOST: db
+      FP_DB_PORT: "3306"
+      FP_DB_NAME: farmaponto
+      FP_DB_USER: farmaponto
+      FP_DB_PASS: farmaponto
+    volumes:
+      - selfies:/var/www/html/storage
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: farmaponto
+      MARIADB_USER: farmaponto
+      MARIADB_PASSWORD: farmaponto
+      MARIADB_ROOT_PASSWORD: farmaponto
+    volumes:
+      - dados:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/01-farmaponto.sql:ro
+
+volumes:
+  dados:
+  selfies:
